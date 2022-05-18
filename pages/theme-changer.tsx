@@ -17,9 +17,10 @@ import axios from "axios";
 
 interface Props {
     theme: string;
+    setMode: any;
 }
 
-const ThemeChangerPage = ({theme}: Props) => {
+const ThemeChangerPage = ({theme, setMode}: Props) => {
 //   console.log(props);
   const [currentTheme, setCurrentTheme] = useState(theme);
 
@@ -32,6 +33,7 @@ const ThemeChangerPage = ({theme}: Props) => {
 
     localStorage.setItem("theme", selectedTheme);
     Cookies.set("theme", selectedTheme);
+    setMode(event.target.value);
   };
 
   const handleThemeSet = async() => {
