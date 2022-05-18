@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import {
   Button,
@@ -14,15 +14,12 @@ import {
 import { Layout } from "../components/layouts";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { UIContext } from "../context";
 
 interface Props {
     theme: string;
 }
 
 const ThemeChangerPage = ({theme}: Props) => {
-  const {changeTheme, themeColor} = useContext(UIContext)
-
 //   console.log(props);
   const [currentTheme, setCurrentTheme] = useState(theme);
 
@@ -35,10 +32,8 @@ const ThemeChangerPage = ({theme}: Props) => {
 
     localStorage.setItem("theme", selectedTheme);
     Cookies.set("theme", selectedTheme);
-
-    changeTheme(event.target.value);
   };
-  
+
   const handleThemeSet = async() => {
       const {data} = await axios.get('/api/hello');
         console.log({data});
