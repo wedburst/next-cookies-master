@@ -1,16 +1,15 @@
-import type { NextPage } from 'next'
 import { useContext } from 'react';
 import { Layout } from '../components/layouts';
 import { UIContext } from '../context';
 
-const Home: NextPage = () => {
+const AboutPage = () => {
   const {themeColor} = useContext(UIContext)
 
   return (
     <Layout>
-      <h1>Cookie Master {themeColor}</h1>
+        <h1>About Page {themeColor}</h1>
     </Layout>
   )
 }
 
-export default Home
+export default AboutPage
